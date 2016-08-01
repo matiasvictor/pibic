@@ -39,6 +39,14 @@ if(!empty($_POST['login']))
 
 	$row = mysqli_fetch_array($query);
 
+
+	$sql2 = "INSERT IGNORE INTO Triagem (nome, hospital, sintomas, id ) SELECT `nome`, '0', '0' , `id` FROM Clientes";
+
+
+	$query = mysqli_query($conexao, $sql2) or die(mysqli_error($conexao)); 
+
+
+
 	if (empty($row)) {
     // Nenhum registro foi encontrado => o usuário é inválido
 		

@@ -20,11 +20,11 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 	
-
+<form role="form" enctype="multipart/form-data" id="cadastro" method="post" action="consultamarcada.php">
 
 	<div align="center" class="form-group">
-		<label for="endereco">Escolha o Hospital, dentre os disponiveis: </label>
-		<select style="width:120px" class="form-control" name="estado" id="estado">
+		<label for="hospital">Escolha o Hospital, dentre os disponiveis: </label>
+		<select style="width:120px" class="form-control" name="hospital" id="hospital">
 			<option>Selecione...</option>
 			<option value="HRS">HRS</option>
 			<option value="HUB">HUB</option>
@@ -39,7 +39,12 @@
   <textarea align="center" style="width:650px" class="form-control" rows="5" id="sintomas" name="sintomas"></textarea>
 </div>
 
-
+<div align="center" class="controls">
+              <button id="cadastrar" class="btn btn-success" type="submit">Concluir meu cadastro</button>
+              <button class="btn btn-danger" type="reset">Limpar Campos Preenchidos!</button>
+            </div>
+          </div>
+</form>
 
 </body>
 </html>
