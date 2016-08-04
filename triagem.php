@@ -23,6 +23,7 @@
 		$consulta = mysqli_query($link, $sql);
 
 
+
 		echo '<table border="2" class="table table-hover" width="200" height="20">';
 
 		echo '<tr>';
@@ -52,10 +53,14 @@
 		echo '<tr>';
 
 		echo '<td>'.$registro["nome"].' </td>';
+		
 
 		echo '<td>'.$registro["hospital"].'</td>';
 
+		
+
 		echo '<td>'.$registro["sintomas"].'</td>';
+
 
 		echo '<td> <div align="center" class="controls">
 		<form role="form" enctype="multipart/form-data" id="aprovartriagem" method="POST" action="editartriagem2.php">
@@ -64,9 +69,7 @@
 
 
 
-		<form role="form" enctype="multipart/form-data" id="aprovartriagem" method="POST" action="aprovartriagem.php">
-			<button class="btn btn-success" type="submit"> Aprovar!</button>
-		</form>
+
 	</div> </td>';
 
 	echo '</tr>';

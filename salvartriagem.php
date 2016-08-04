@@ -14,7 +14,6 @@ $username = "root";
 $password = "pibic";
 $bdados = "clientes";
 
-echo $id;
 
 
 
@@ -28,7 +27,7 @@ $banco = mysqli_select_db($conexao, $bdados);
 if (!$banco)
 	die ("Erro de conexão com banco de dados, o seguinte erro ocorreu -> ".mysqli_error());
 
-$query = "UPDATE Triagem SET nome='$nome', hospital='$hospital', sintomas='$sintomas' WHERE id=$id";
+$query = "UPDATE Triagem SET nome='$nome', hospital='$hospital', sintomas='$sintomas' WHERE nome=$nome";
 
 
 mysqli_query($conexao, $query);
