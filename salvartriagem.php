@@ -1,6 +1,6 @@
 <?php 
 // RECEBENDO OS DADOS PREENCHIDOS DO FORMULÁRIO !
-$nome	= (isset($_POST ["nome"]) ? $_POST["nome"] : null);
+$nome	= (isset($POST ["nome"]) ? $POST["nome"] : null);
 $hospital	= (isset($_POST ["hospital"]) ? $_POST["hospital"] : null);	//atribuição do campo "hospital" vindo do formulário para variavel	
 $sintomas	= (isset($_POST ["sintomas"]) ? $_POST["sintomas"] : null);
 $id	= (isset($_POST ["id"]) ? $_POST["id"] : null);
@@ -27,15 +27,16 @@ $banco = mysqli_select_db($conexao, $bdados);
 if (!$banco)
 	die ("Erro de conexão com banco de dados, o seguinte erro ocorreu -> ".mysqli_error());
 
-$query = "UPDATE Triagem SET nome='$nome', hospital='$hospital', sintomas='$sintomas' WHERE nome=$nome";
+
+$query = "UPDATE Triagem SET nome='$nome', hospital='$hospital', sintomas='$sintomas' WHERE id=$id";
 
 
 mysqli_query($conexao, $query);
 
+echo $nome;
 
 
-
-echo "Sua triagem foi editada com sucesso!<br>Obrigado!.";
+echo "Sua triagem foi editada com sucesso!<br>Obrigado!";
 ?> 
 
 

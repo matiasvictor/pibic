@@ -26,7 +26,7 @@ $consulta = mysqli_query($conexao, $query);
 
 $row = mysqli_fetch_assoc($consulta);
 
- 
+
 $option = '';
 $option2 = '';
 
@@ -34,7 +34,7 @@ while($line = mysqli_fetch_assoc($consulta))
 {
   $select = $line["nome"] == $line["nome"] ? "selected" : "";
 
-  $option .= '<option value = "'.$line['nome'].'" selected="selected">'.$line['nome'].'</option>';
+  $option .= '<option value = "'.$line['nome'].'">'.$line['nome'].'</option>';
   $option2 .= '<option value = "'.$line['hospital'].'">'.$line['hospital'].'</option>';
 
 
@@ -76,64 +76,65 @@ while($line = mysqli_fetch_assoc($consulta))
 
  <form role="form" enctype="multipart/form-data" id="cadastro" method="POST" action="salvartriagem.php">
 
+
+
+   <div align="center" class="form-group">
+
+    <label for="nome">Selecione um nome: </label>
+
+
+
+    <select style="width:300px" class="form-control" name="nome" id="nome" onchange="location.href='editartriagem2.php?nome='+this.value">
+
+
+      <?php 
+
+      <input type="hidden" id="id" name="id" value="<?php echo $option;?> " />
+
+
+
+      ?>
+
+
+    </select>
+  </div>
+
+  <?php 
+
+  $sql= "SELECT nome, hospital, sintomas, id FROM Triagem WHERE nome ='".$_GET['nome']."' LIMIT 20";
+
+  $consulta2 = mysqli_query($conexao, $sql);
+
+  $row2 = mysqli_fetch_assoc($consulta2);
+
+
+
+
+
+
+  ?>
+
   <div align="center" class="form-group">
 
-   <input type="text" id="id" name="id" value="<?php echo $row["id"];?> " />
+   <input type="hidden" id="id" name="id" value="<?php echo $row2["id"];?> " />
+
+ </div>
+
+
+ <div align="center" class="form-group">
+
+   <label for="sintomas">Hospital : </label>
+   <input type="text" id="hospital" name="hospital" value="<?php echo $row2["hospital"]; ?>">
+
 
  </div>
 
 
 
+
  <div align="center" class="form-group">
-
-  <label for="nome">Selecione um nome: </label>
-  
-  
-
-  <select style="width:300px" class="form-control" name="nome" id="nome" onchange="location.href='editartriagem2.php?nome='+this.value">
-
-
-    <?php 
-
-    echo $option;
-
-    
-
-     ?>
-
-
-  </select>
-</div>
-
-<?php 
-
-  $sql= "SELECT nome, hospital, sintomas, id FROM Triagem WHERE nome ='".$_GET['nome']."' LIMIT 20";
-
-    $consulta2 = mysqli_query($conexao, $sql);
-
-    $row2 = mysqli_fetch_assoc($consulta2);
-
-
-
-    ?>
-
-<div align="center" class="form-group">
-
- 
-
-
-     <label for="sintomas">Hospital : </label>
-  <input type="textarea" id="sintomas" name="sintomas" value="<?php echo $row2["hospital"]; ?>">
-
-
-</div>
-
-
-
-
-<div align="center" class="form-group">
   <label for="sintomas">Sintomas: </label>
-  <input type="textarea" id="sintomas" name="sintomas" value="<?php echo $row2["sintomas"]; ?>">
+  <input type="text" id="sintomas" name="sintomas" value="<?php echo $row2["sintomas"]; ?>">
 </div>
 
 <div align="center" class="controls">
