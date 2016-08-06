@@ -32,15 +32,19 @@ $option2 = '';
 
 while($line = mysqli_fetch_assoc($consulta))
 {
-  $select = $line["nome"] == $line["nome"] ? "selected" : "";
 
-  $option .= '<option value = "'.$line['nome'].'">'.$line['nome'].'</option>';
-  $option2 .= '<option value = "'.$line['hospital'].'">'.$line['hospital'].'</option>';
+ $select = $row["nome"] == $line["nome"] ? "selected" : "";
+
+ //$option .= '<option value = "'.$line['nome'].'"selected="selected">'.$line['nome'].'</option>';
+
+ 
+
+ $option .= '<option value = "'. $line["nome"] .'" $select> '. $line["nome"] .'</option>';
+
+ //$option .= '<option value= \"". $line["id"] . "\" $select>" . $line["nome"] . "</option>';
 
 
 }
-
-
 
 ?>
 
@@ -84,12 +88,12 @@ while($line = mysqli_fetch_assoc($consulta))
 
 
 
-    <select style="width:300px" class="form-control" name="nome" id="nome" onchange="location.href='editartriagem2.php?nome='+this.value">
+    <select style="width:300px" class="form-control" name="selectoption" id="nome" onchange="location.href='editartriagem2.php?nome='+this.value">
 
 
       <?php 
 
-      <input type="hidden" id="id" name="id" value="<?php echo $option;?> " />
+      echo $option;
 
 
 

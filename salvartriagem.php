@@ -1,6 +1,6 @@
 <?php 
 // RECEBENDO OS DADOS PREENCHIDOS DO FORMULÁRIO !
-$nome	= (isset($POST ["nome"]) ? $POST["nome"] : null);
+$nome	= (isset($POST ["selectoption"]) ? $POST["selectoption"] : null);
 $hospital	= (isset($_POST ["hospital"]) ? $_POST["hospital"] : null);	//atribuição do campo "hospital" vindo do formulário para variavel	
 $sintomas	= (isset($_POST ["sintomas"]) ? $_POST["sintomas"] : null);
 $id	= (isset($_POST ["id"]) ? $_POST["id"] : null);
@@ -9,13 +9,15 @@ $id	= (isset($_POST ["id"]) ? $_POST["id"] : null);
 
 //Gravando no banco de dados !
 
+echo $nome;
+
 $servername = "localhost";
 $username = "root";
 $password = "pibic";
 $bdados = "clientes";
 
 
-
+echo $_POST["selectoption"];
 
 //conectando com o localhost - mysql
 $conexao = mysqli_connect($servername, $username, $password, $bdados);
