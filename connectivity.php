@@ -45,6 +45,13 @@ if(!empty($_POST['login']))
 
 	$query = mysqli_query($conexao, $sql2) or die(mysqli_error($conexao)); 
 
+	$sql3 = "SELECT `id` FROM Clientes WHERE `login` = '".$Id."'";
+
+	$query2 = mysqli_query($conexao, $sql3) or die(mysqli_error($conexao)); 
+
+	$row2 = mysqli_fetch_array($query2);
+
+
 
 
 	if (empty($row)) {
@@ -56,7 +63,7 @@ if(!empty($_POST['login']))
 
 	} else {
 
-			$url = 'cadastrado.html';
+			$url = 'cadastrado.html?id=' .$row2['id'].'';
 
 		echo'<META HTTP-EQUIV=Refresh CONTENT="0; URL='.$url.'">';
 

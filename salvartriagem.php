@@ -1,6 +1,6 @@
 <?php 
 // RECEBENDO OS DADOS PREENCHIDOS DO FORMULÁRIO !
-$nome	= (isset($POST ["selectoption"]) ? $POST["selectoption"] : null);
+$nome	= (isset($_POST ["nome"]) ? $_POST["nome"] : null);
 $hospital	= (isset($_POST ["hospital"]) ? $_POST["hospital"] : null);	//atribuição do campo "hospital" vindo do formulário para variavel	
 $sintomas	= (isset($_POST ["sintomas"]) ? $_POST["sintomas"] : null);
 $id	= (isset($_POST ["id"]) ? $_POST["id"] : null);
@@ -9,7 +9,7 @@ $id	= (isset($_POST ["id"]) ? $_POST["id"] : null);
 
 //Gravando no banco de dados !
 
-echo $nome;
+
 
 $servername = "localhost";
 $username = "root";
@@ -17,7 +17,6 @@ $password = "pibic";
 $bdados = "clientes";
 
 
-echo $_POST["selectoption"];
 
 //conectando com o localhost - mysql
 $conexao = mysqli_connect($servername, $username, $password, $bdados);
@@ -35,7 +34,6 @@ $query = "UPDATE Triagem SET nome='$nome', hospital='$hospital', sintomas='$sint
 
 mysqli_query($conexao, $query);
 
-echo $nome;
 
 
 echo "Sua triagem foi editada com sucesso!<br>Obrigado!";

@@ -30,6 +30,10 @@ $row = mysqli_fetch_assoc($consulta);
 $option = '';
 $option2 = '';
 
+ $nomesalvo = isset($_GET['nome']);
+
+    echo $nomesalvo; 
+
 while($line = mysqli_fetch_assoc($consulta))
 {
 
@@ -55,7 +59,7 @@ while($line = mysqli_fetch_assoc($consulta))
   <meta charset="UTF-8">
   <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 
-  <title>CADASTRO DE CLIENTES COM BANCO DE DADOS E PHP</title>
+  <title>Editar triagem</title>
   <style type="text/css">
     <!--
     .style1 {
@@ -82,43 +86,70 @@ while($line = mysqli_fetch_assoc($consulta))
 
 
 
+
+
+    <?php 
+
+
+
+
+
+    if (empty($_GET['nome'])) {
+
+
+      ?> 
+
+
    <div align="center" class="form-group">
 
     <label for="nome">Selecione um nome: </label>
+      <select style="width:300px" class="form-control" name="nome" id="nome" onchange="location.href='editartriagem2.php?nome='+this.value">
+
+
+        <?php 
+
+        echo $option;
 
 
 
-    <select style="width:300px" class="form-control" name="selectoption" id="nome" onchange="location.href='editartriagem2.php?nome='+this.value">
+        ?>
 
 
-      <?php 
+      </select>
+    </div>
 
-      echo $option;
-
-
-
-      ?>
+    <?php 
 
 
-    </select>
-  </div>
+  } else { 
 
-  <?php 
+    ?>
 
-  $sql= "SELECT nome, hospital, sintomas, id FROM Triagem WHERE nome ='".$_GET['nome']."' LIMIT 20";
+       <div align="center" class="form-group">
 
-  $consulta2 = mysqli_query($conexao, $sql);
+  <label for="nome">Edite os dados: </label>
 
-  $row2 = mysqli_fetch_assoc($consulta2);
-
+     <input type="hidden" id="nome" name="nome" value = "<?php echo $_GET["nome"]; ?>" />
 
 
+   </div>
+
+   <?php 
 
 
 
-  ?>
+ }
 
-  <div align="center" class="form-group">
+ $sql= "SELECT nome, hospital, sintomas, id FROM Triagem WHERE nome ='".$_GET['nome']."' LIMIT 20";
+
+ $consulta2 = mysqli_query($conexao, $sql);
+
+ $row2 = mysqli_fetch_assoc($consulta2);
+
+
+ ?>
+
+ <div align="center" class="form-group">
 
    <input type="hidden" id="id" name="id" value="<?php echo $row2["id"];?> " />
 

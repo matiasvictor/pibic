@@ -7,7 +7,6 @@ define('DB_PASSWORD','pibic');
 
 
 
-//function SignIn() {  
 
 
 $conexao = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD) or die("Failed to connect to MySQL: " . mysqli_error()); 
@@ -19,6 +18,8 @@ $Id	= (isset($_POST ["login"]) ? $_POST["login"] : null);
 
 
 $Passsword	= (isset($_POST ["senha"]) ? $_POST["senha"] : null);
+
+
 //starting the session for user profile page
 
 
@@ -30,9 +31,6 @@ if(!empty($_POST['login']))
 
 	$sql = "SELECT `login`, `senha` FROM Medicos WHERE `login` = '".$Id."' AND `senha` = '".$Passsword."' ";
 
-
-
-		//"SELECT login, senha FROM Clientes";
 
 
 	$query = mysqli_query($conexao, $sql) or die(mysqli_error($conexao)); 
@@ -56,7 +54,7 @@ if(!empty($_POST['login']))
 
 
 
-		} }  
-		if(isset($_POST['submit'])) { SignIn(); } 
+		}   }
+ 
 
 		?>
