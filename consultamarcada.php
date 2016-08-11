@@ -12,6 +12,9 @@
 // RECEBENDO OS DADOS PREENCHIDOS DO FORMULÁRIO !
 $hospital	= (isset($_POST ["hospital"]) ? $_POST["hospital"] : null);	//atribuição do campo "hospital" vindo do formulário para variavel	
 $sintomas	= (isset($_POST ["sintomas"]) ? $_POST["sintomas"] : null);	//atribuição do campo "sintomas" vindo do formulário para variavel
+$Id  = (isset($_GET['id']) ? $_GET['id'] : null);
+
+
 //$ddd	= (isset($_POST ["ddd"]) ? $_POST["ddd"] : null);	//atribuição do campo "ddd" vindo do formulário para variavel
 
 //Gravando no banco de dados !
@@ -34,7 +37,7 @@ if (!$banco)
 
 
 
-$query =  "INSERT IGNORE INTO Triagem (hospital , sintomas , id) VALUES ('$hospital', '$sintomas', id)";
+$query =  "INSERT IGNORE INTO Triagem (hospital , sintomas , id) VALUES ('$hospital', '$sintomas', id) WHERE `id` = '".$Id."' ";
 
 
 mysqli_query($conexao, $query);
@@ -42,7 +45,7 @@ mysqli_query($conexao, $query);
 
 $url = 'cadastrado.html';
 
-		echo'<META HTTP-EQUIV=Refresh CONTENT="0; URL='.$url.'">';
+		//echo'<META HTTP-EQUIV=Refresh CONTENT="0; URL='.$url.'">';
 
 
 echo "Sua consulta foi marcada com sucesso!<br>Obrigado!.";

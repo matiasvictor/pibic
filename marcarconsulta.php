@@ -14,12 +14,7 @@
 	-->
 </style>
 
-<?php 
 
-
-$Id  = (isset($_GET['id']) ? $_GET['id'] : null);
-
-?> 
 
 </head>
 
@@ -29,7 +24,7 @@ $Id  = (isset($_GET['id']) ? $_GET['id'] : null);
 
 
 	
-<form role="form" enctype="multipart/form-data" id="cadastro" method="post" action="consultamarcada.php">
+<form role="form" enctype="multipart/form-data" id="cadastro" method="post" action="consultamarcada.php?id=<?php echo $_GET['id']; ?> ">
 
 	<div align="center" class="form-group">
 		<label for="hospital">Escolha o Hospital, dentre os disponiveis: </label>

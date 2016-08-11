@@ -63,7 +63,7 @@ if(!empty($_POST['login']))
 
 	} else {
 
-			$url = 'cadastrado.html?id=' .$row2['id'].'';
+			$url = 'cadastrado.php?id=' .$row2['id'].'';
 
 		echo'<META HTTP-EQUIV=Refresh CONTENT="0; URL='.$url.'">';
 
