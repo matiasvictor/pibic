@@ -7,7 +7,7 @@
 	<style type="text/css">
 
 	html { 
-            background: url(css/medico.jpg) no-repeat center center fixed; 
+            background: url(css/paciente.jpg) no-repeat center center fixed; 
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;

@@ -26,6 +26,8 @@
 	
 <form role="form" enctype="multipart/form-data" id="cadastro" method="post" action="consultamarcada.php?id=<?php echo $_GET['id']; ?> ">
 
+
+
 	<div align="center" class="form-group">
 		<label for="hospital">Escolha o Hospital, dentre os disponiveis: </label>
 		<select style="width:120px" class="form-control" name="hospital" id="hospital">
@@ -48,6 +50,8 @@
               <button class="btn btn-danger" type="reset">Limpar Campos Preenchidos!</button>
             </div>
           </div>
+
+          
 </form>
 
 </body>

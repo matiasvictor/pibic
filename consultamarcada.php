@@ -37,7 +37,7 @@ if (!$banco)
 
 
 
-$query =  "INSERT IGNORE INTO Triagem (hospital , sintomas , id) VALUES ('$hospital', '$sintomas', id) WHERE `id` = '".$Id."' ";
+$query =  "INSERT IGNORE INTO Consultas (hospital , sintomas , id) VALUES ('$hospital', '$sintomas', id) WHERE `id` = '".$Id."' ";
 
 
 mysqli_query($conexao, $query);
